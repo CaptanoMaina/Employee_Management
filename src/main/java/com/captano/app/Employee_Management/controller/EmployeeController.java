@@ -34,5 +34,20 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeModel);
     }
 
+    @PutMapping("/employees/{user_id}")
+    public ResponseEntity<EmployeeModel> updateEmployee(@PathVariable Long user_id, @RequestBody EmployeeModel employeeDetails){
+        EmployeeModel employeeModel = employeeRepository.findById(user_id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee record does not exist with user id:" + user_id ));
+
+        employeeModel.setFirst_name(employeeDetails.getFirst_name());
+        employeeModel.setLast_name(employeeDetails.getLast_name());
+        employeeModel.setBu_code(employeeDetails.getBu_code());
+        employeeModel.setBu_name(employeeDetails.getBu_name());
+        employeeModel.setRegion_code(employeeDetails.getRegion_code());
+        employeeModel.setRegion_name(employeeDetails.getRegion_name());
+
+        EmployeeModel updatedEmployee = employeeRepository.save(employeeModel);
+        return ResponseEntity.ok(updatedEmployee);
+    }
 
 }
