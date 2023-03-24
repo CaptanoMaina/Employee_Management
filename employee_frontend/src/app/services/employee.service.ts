@@ -8,11 +8,14 @@ import { Employee } from '../employee';
 })
 export class EmployeeService {
 
-  private api = "http://localhost:8080/api/v1";
+  private api = "http://localhost:8080/api/v1/employees";
 
   constructor(private HttpClient: HttpClient) { }
 
   getEmployeesList(): Observable<Employee[]> {
-    return this.HttpClient.get<Employee[]>(`${this.api}/employees`);
+    return this.HttpClient.get<Employee[]>(`${this.api}`);
+  }
+  createEmployee(employee: Employee): Observable<Object> {
+    return this.HttpClient.post(`${this.api}`, employee);
   }
 }

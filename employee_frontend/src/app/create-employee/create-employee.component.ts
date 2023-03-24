@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from '../employee';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -9,13 +11,25 @@ import { Employee } from '../employee';
 export class CreateEmployeeComponent implements OnInit {
   employee: Employee = new Employee();
 
-  constructor() { }
+  constructor(private api: EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  saveEmployee() {
+    this.api.createEmployee(this.employee).subscribe(data => {
+      console.log(data);
+      this.gotoEmployeeList();
+    }, error => console.log(error));
+  }
+
+  gotoEmployeeList() {
+    this.router.navigate(['/employees']);
+  }
+
   onSubmit() {
     console.log(this.employee)
+    this.saveEmployee();
   }
 
 }
