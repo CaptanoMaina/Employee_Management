@@ -1,6 +1,7 @@
 package com.captano.app.Employee_Management.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
@@ -26,7 +27,7 @@ public class EmployeeModel {
     @Column(name="region_name")
     private String region_name;
 
-    @CreatedDate
+    @CreationTimestamp
     private Date created_date;
 
     public EmployeeModel(){}
