@@ -3,11 +3,14 @@ package com.captano.app.Employee_Management.controller;
 import com.captano.app.Employee_Management.exception.ResourceNotFoundException;
 import com.captano.app.Employee_Management.model.EmployeeModel;
 import com.captano.app.Employee_Management.repository.EmployeeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -50,4 +53,15 @@ public class EmployeeController {
         return ResponseEntity.ok(updatedEmployee);
     }
 
+    @DeleteMapping("/employees/{user_id}")
+    public ResponseEntity<Map<String, Boolean>> deleteEmployee(@PathVariable Long user_id, @RequestBody EmployeeModel employeeDetails) {
+        EmployeeModel employeeModel = employeeRepository.findById(user_id)
+                .orElseThrow(() -> new ResourceNotFoundException("Employee record does not exist with user id:" + user_id));
+
+        employeeRepository.delete(employeeModel);
+        Map<String,Boolean> response = new HashMap<>();
+        response.put("deleted",Boolean.TRUE);
+        return ResponseEntity.ok(response);
+
+    }
 }
