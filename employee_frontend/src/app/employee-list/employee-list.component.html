@@ -20,6 +20,9 @@
             <td>{{ employee.region_name }}</td>
             <td>
                 <button (click)="updateEmployee(employee.user_id)" class="btn btn-info">Update</button>
+
+                <button (click)="deleteEmployee(employee.user_id)" class="btn btn-danger"
+                    style="margin-left:20px">Delete</button>
             </td>
 
 
