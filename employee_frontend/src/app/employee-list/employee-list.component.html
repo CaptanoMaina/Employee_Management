@@ -20,12 +20,15 @@
             <td>{{ employee.region_name }}</td>
             <td>
                 <button (click)="employeeDetails(employee.user_id)" class="btn "
-                    style="background-color: #303642; color:white">Details</button>
-                <button (click)="updateEmployee(employee.user_id)" class="btn "
-                    style="background-color: #018695; margin-left:20px; color: white;">Update</button>
+                    style="background-color: #018695; color:white">Details</button>
 
-                <button (click)="deleteEmployee(employee.user_id)" class="btn btn-danger"
-                    style="margin-left:20px">Delete</button>
+
+                <button (click)="deleteEmployee(employee.user_id)" class="btn "
+                    style="background-color: rgb(182, 10, 10); color:white;margin-left:20px">Delete</button>
+
+
+                <button (click)="updateEmployee(employee.user_id)" class="btn "
+                    style="background-color: #303642; margin-left:20px; color: white;">Update</button>
             </td>
 
 
