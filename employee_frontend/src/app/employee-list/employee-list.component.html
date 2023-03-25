@@ -4,11 +4,11 @@
 
     <thead>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>BU Name</th>
-            <th>Region Name</th>
-            <th>Actions</th>
+            <th style="padding:2rem 0 1rem 0">First Name</th>
+            <th style="padding:2rem 0 1rem 0">Last Name</th>
+            <th style="padding:2rem 0 1rem 0">BU Name</th>
+            <th style="padding:2rem 0 1rem 0">Region Name</th>
+            <th style="padding:2rem 0 1rem 0">Actions</th>
 
         </tr>
     </thead>
@@ -19,7 +19,10 @@
             <td>{{ employee.bu_name }}</td>
             <td>{{ employee.region_name }}</td>
             <td>
-                <button (click)="updateEmployee(employee.user_id)" class="btn btn-info">Update</button>
+                <button (click)="employeeDetails(employee.user_id)" class="btn "
+                    style="background-color: #303642; color:white">Details</button>
+                <button (click)="updateEmployee(employee.user_id)" class="btn "
+                    style="background-color: #018695; margin-left:20px; color: white;">Update</button>
 
                 <button (click)="deleteEmployee(employee.user_id)" class="btn btn-danger"
                     style="margin-left:20px">Delete</button>
