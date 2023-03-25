@@ -4,7 +4,7 @@
 
 + [About](#about)
 + [Getting Started](#getting_started)
-+ [Usage](#usage)
++ [Running The Application](#usage)
 + [Built Using](#built_using)
 
 ## 🧐 About <a name = "about"></a>
@@ -43,7 +43,7 @@ git clone https://github.com/CaptanoMaina/Employee_Management.git
 ```
 
 
-## 🎈 Running The Application <a name = "running_the_application"></a>
+## 🎈 Running The Application <a name = "usage"></a>
 
 To run the Angular Frontend application, use the following command.
 ```
